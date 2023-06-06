@@ -36,6 +36,7 @@ const SignupForm = () => {
         <>
             <form className="main-form" >
                 <div className="form-div">
+                <h2>Skapa Konto</h2>
                     <div className="form-header">
                     </div>
 

@@ -22,14 +22,22 @@ const handleLogin = async (username, password) =>{
     }
 
     const response = await fetch(API_URL + '/login', options)
-    if(response.status !== 200){
+    if(response.status !== 401){
+        const data = await response.json()
+        sessionStorage.setItem(sessionStorageKey, data.token)
+        sessionStorage.setItem('id', data.id)
+        return true
+    }else{
         console.log('Login failed: ' + response.status);
         return
+
     }
     
-    const data = await response.json()
-    sessionStorage.setItem(sessionStorageKey, data.token)
-    sessionStorage.setItem('id', data.id)
 }
 
-export {handleLogin}
+const handleLogout = async () =>{
+    sessionStorage.removeItem(sessionStorageKey)
+
+}
+
+export {handleLogin, handleLogout}
