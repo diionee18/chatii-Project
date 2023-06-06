@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import "../../styles/Header.css";
-import { Button } from "rsuite";
 import { useState } from "react";
 
 const Header = () => {

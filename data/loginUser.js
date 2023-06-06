@@ -1,30 +1,35 @@
 import { API_URL } from "./constants"
 
 
-const sessionStorageKey = 'jwt-example'
+const sessionStorageKey = 'jwt'
 const handleLogin = async (username, password) =>{
+    // Om det redan finns en token avslutar vi direkt.
+    if (sessionStorage.getItem(sessionStorageKey) != null) {
+        return;
+    }
 
     const userData ={
         name: username,
         password: password
     }
 
-    let options = {
+    const options = {
         method: 'POST',
         headers:{
-            "content-type": "application/json",
+            "Content-Type": "application/json",
         },
         body: JSON.stringify(userData)
     }
 
-    const response = await fetch(API_URL + 'login/', options)
+    const response = await fetch(API_URL + '/login', options)
     if(response.status !== 200){
         console.log('Login failed: ' + response.status);
         return
     }
+    
     const data = await response.json()
-    let jwt = data.token
-    sessionStorage.setItem(sessionStorageKey ,jwt)
+    sessionStorage.setItem(sessionStorageKey, data.token)
+    sessionStorage.setItem('id', data.id)
 }
 
 export {handleLogin}

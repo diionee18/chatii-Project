@@ -7,7 +7,7 @@ const handleSignup = async (username,password) =>{
         password: password
     }
 
-    let options = {
+    const options = {
         method: 'POST',
         headers:{
             "content-type": "application/json",
@@ -15,7 +15,7 @@ const handleSignup = async (username,password) =>{
         body: JSON.stringify(userData)
     }
 
-    const response = await fetch(API_URL + 'signup/', options)
+    const response = await fetch(API_URL + '/signup', options)
     const data = await response.json()
     if(data){
         return true

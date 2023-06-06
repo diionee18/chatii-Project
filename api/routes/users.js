@@ -22,7 +22,9 @@ router.post("/login", async (req, res) => {
 
     //för backend
     const foundName = users.find((user) => user.name === username);
-    const foundPassword = foundName.password === userPassword;
+
+    const foundPassword = users.find((user) => user.password === userPassword); 
+    // const foundPassword = foundName.password === userPassword;
 
     if (!foundName) {
         console.log("Felaktigt användarnamn");
@@ -36,11 +38,11 @@ router.post("/login", async (req, res) => {
     }
 
     const day = 3600 * 24;
-    const payload = { userId: users.id };
+    const payload = { userId: foundName.id };
 
     let token = jwt.sign(payload, secret, { expiresIn: day });
     console.log("signed JWT: " + token);
-    res.send(token);
+    res.send({id: foundName.id, token: token});
 });
 
 router.post("/signup", async (req, res) => {
@@ -80,5 +82,39 @@ router.post("/signup", async (req, res) => {
     db.write();
     res.sendStatus(200);
 });
+
+
+router.get('/channel', async (req, res) => {
+    let authHeader = req.headers.authorization
+
+	if( !authHeader ) {
+		res.status(401).send({
+			message: 'You must be authenticated to view this very secret data.'
+		})
+		return
+	}
+	let token = authHeader.replace('Bearer: ', '')
+    await db.read();    
+    const channels = db.data.channels;
+
+	try {
+		const decoded = jwt.verify(token, secret)
+		console.log('GET /channel decoded: ', decoded)
+        const channel = channels.find(c => req.body.channel.toLowerCase() in c);
+        console.log(req.body.channel, channel)
+		
+        if ( ! channel ) {
+            console.log('GET /channel ' + channel.decoded + ' not found.')
+            res.sendStatus(404).json({error: 'Channel not found', message: `The channel '${channelName}' was not found.` })
+        }
+
+        console.log('GET /channel OK', channel)
+		res.status(200).json(channel)
+
+	} catch(error) {
+		console.log('GET /channel error: ' + error.message)
+		res.sendStatus(401)
+	}
+})
 
 export default router;

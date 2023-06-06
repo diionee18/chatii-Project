@@ -1,39 +1,51 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "name": "admin",
-      "password": "mums"
-    },
-    {
-      "id": 997,
-      "name": "ali",
-      "password": "ali123"
-    },
-    {
-      "id": 659,
-      "name": "monta",
-      "password": "ramen"
-    },
-    {
-      "id": 10,
-      "name": "läxa",
-      "password": "läxa"
-    },
-    {
-      "id": 705,
-      "name": "ale",
-      "password": "ramen"
-    },
-    {
-      "id": 862,
-      "name": "mama",
-      "password": "baba"
-    },
-    {
-      "id": 30,
-      "name": "läle",
-      "password": "loli"
-    }
-  ]
+    "users": [
+        {
+            "id": 1,
+            "name": "admin",
+            "password": "mums"
+        },
+        {
+            "id": 997,
+            "name": "ali",
+            "password": "ali123"
+        },
+        {
+            "id": 659,
+            "name": "monta",
+            "password": "ramen"
+        },
+        {
+            "id": 10,
+            "name": "läxa",
+            "password": "läxa"
+        },
+        {
+            "id": 705,
+            "name": "ale",
+            "password": "ramen"
+        },
+        {
+            "id": 862,
+            "name": "mama",
+            "password": "baba"
+        },
+        {
+            "id": 30,
+            "name": "läle",
+            "password": "loli"
+        }
+    ],
+
+    "channels": [
+        {
+            "allmänt": [
+                {
+                    "userId": 30,
+                    "timestamp": 1686062498973,
+                    "message": "Ya Ali Madad!"
+                }
+            ]
+        }
+    ]
 }

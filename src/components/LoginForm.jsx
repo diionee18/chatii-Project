@@ -1,19 +1,23 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { handleLogin } from "../../data/loginUser";
+import { handleLogin } from "../../data/LoginUser";
+import ChannelsList from "./Channels";
 
 
 const LoginForm = () => {
     const [userName, setUserName] = useState("");
     const [userPassword, setUserPassword] = useState("");
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         console.log(userName, userPassword);
+
         try{
-            const result = await handleLogin(userName, userPassword)
+            await handleLogin(userName, userPassword)
+            sessionStorage.getItem('jwt');
         }catch (error){
-            // console.log(error.message);
+            console.log(error.message);
         }
 
 
@@ -33,7 +37,7 @@ const LoginForm = () => {
 
     return (
         <>
-            <form className="main-form" >
+            <form onSubmit={handleSubmit} className="main-form" >
                 <div className="form-div">
                     <div className="form-header">
                     </div>
@@ -49,12 +53,14 @@ const LoginForm = () => {
                     </div>
 
                     <div className="login-div">
-                   <Link to="/">
-                   <button onClick={handleSubmit} className="login-btn">Logga in</button>
-                    </Link> 
+                   
+                   <button type="submit" className="login-btn">Logga in</button>
+
+                    
                     </div>
                 </div>
             </form>
+                   <ChannelsList/>
         </>
     );
 };
