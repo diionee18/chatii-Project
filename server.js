@@ -8,8 +8,7 @@ const app = express()
 dotenv.config()
 const port = process.env.PORT || 2065
 
-app.use(express.json());
-
+//CORS
 app.use((req, res, next) => {
 	res.header("Access-Control-Allow-Origin", "*")
 	next();
@@ -20,6 +19,10 @@ app.options('*', (req, res) => {
 	res.header('Access-Control-Allow-Headers', 'Content-Type');
 	res.send();
 });
+
+
+app.use(express.json());
+
 
 app.use((req, res, next) => {
     console.log(`${req.method} ${req.url}`, req.body);

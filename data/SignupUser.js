@@ -1,3 +1,4 @@
+import { API_URL } from "./constants";
 
 const handleSignup = async (username,password) =>{
 
@@ -14,12 +15,13 @@ const handleSignup = async (username,password) =>{
         body: JSON.stringify(userData)
     }
 
-    const response = await fetch('/login', options)
-    if(response.status !== 200){
-        console.log('Login failed: ' + response.status);
-        return
-    }
+    const response = await fetch(API_URL + 'signup/', options)
     const data = await response.json()
+    if(data){
+        return true
+    }
+    return false
+    
 
 }
 

@@ -1,7 +1,8 @@
+import { API_URL } from "./constants"
 
 
 const sessionStorageKey = 'jwt-example'
-const handleLogin = async (username,password) =>{
+const handleLogin = async (username, password) =>{
 
     const userData ={
         name: username,
@@ -16,7 +17,7 @@ const handleLogin = async (username,password) =>{
         body: JSON.stringify(userData)
     }
 
-    const response = await fetch('/login', options)
+    const response = await fetch(API_URL + 'login/', options)
     if(response.status !== 200){
         console.log('Login failed: ' + response.status);
         return

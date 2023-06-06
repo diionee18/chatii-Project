@@ -9,12 +9,13 @@ const LoginForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const result = await handleLogin(userName, userPassword)
-        if (result){
-            console.log('logged in');
-        }else{
-            console.log('Could not login', result.message);
+        console.log(userName, userPassword);
+        try{
+            const result = await handleLogin(userName, userPassword)
+        }catch (error){
+            // console.log(error.message);
         }
+
 
     }
     
@@ -32,7 +33,7 @@ const LoginForm = () => {
 
     return (
         <>
-            <form className="main-form" onSubmit={handleSubmit}>
+            <form className="main-form" >
                 <div className="form-div">
                     <div className="form-header">
                     </div>
@@ -49,7 +50,7 @@ const LoginForm = () => {
 
                     <div className="login-div">
                    <Link to="/">
-                   <button onClick={handleClick} type="submit" className="login-btn">Logga in</button>
+                   <button onClick={handleSubmit} className="login-btn">Logga in</button>
                     </Link> 
                     </div>
                 </div>

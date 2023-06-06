@@ -1,4 +1,6 @@
 import { handleSignup } from "../../data/SignupUser";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const SignupForm = () => {
     const [userName, setUserName] = useState("");
@@ -7,13 +9,16 @@ const SignupForm = () => {
     
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const result = await handleSignup(userName, setUserName)
-        if (result){
-            console.log('User created successfully');
-        }else{
-            console.log('Could not create user', result.message);
-        }
+        try{
+            const result = await handleSignup(userName, userPassword)
+            if (result){
+                console.log('User created successfully');
+                return
+            }
 
+        }catch (error){
+            console.log(error.message);
+        }
     }
     
 
@@ -29,7 +34,7 @@ const SignupForm = () => {
 
     return (
         <>
-            <form className="main-form" onSubmit={handleSubmit}>
+            <form className="main-form" >
                 <div className="form-div">
                     <div className="form-header">
                     </div>
@@ -46,7 +51,7 @@ const SignupForm = () => {
 
                     <div className="login-div">
                    <Link to="/Signin">
-                   <button onClick={handleClick} type="submit" className="login-btn">Skapa konto</button>
+                   <button onClick={handleSubmit} className="login-btn">Skapa konto</button>
                     </Link> 
                     </div>
                 </div>
