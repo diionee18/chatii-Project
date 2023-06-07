@@ -8,6 +8,20 @@ const db = getDb();
 dotenv.config();
 const secret = process.env.SECRET;
 
+
+// GET Users - hela listan
+router.get("/", async (req, res) => {
+    try {
+        await db.read();
+        const users = db.data.users;
+        console.log("Visar user-lista", users);
+        res.send(users);
+    } catch (error) {
+        console.log("Detta är vad vi får tillbaka i user-listan", error);
+        res.status(500).send("Ett fel inträffade med att hämta användarna.");
+    }
+});
+
 router.post("/login", async (req, res) => {
     await db.read();
     const users = db.data.users;
@@ -45,7 +59,8 @@ router.post("/login", async (req, res) => {
     res.send({id: foundName.id, token: token});
 });
 
-router.post("/signup", async (req, res) => {
+// Lägg till användare
+router.post("/", async (req, res) => {
     await db.read();
     const users = db.data.users;
     const username = req.body.name;
@@ -83,38 +98,23 @@ router.post("/signup", async (req, res) => {
     res.sendStatus(200);
 });
 
+// Ta bort användare
+router.delete("/:id", async (req, res) => {
+    await db.read();
 
-router.get('/channel', async (req, res) => {
-    let authHeader = req.headers.authorization
+    let id = Number(req.params.id);
+    let userToDelete = db.data.users.find((user) => user.id === id);
+    if (!userToDelete) {
+        return res.status(400).send("Kunde inte hitta användaren, kontrollera att Id är är korrekt");
+    } else {
+        db.data.users = db.data.users.filter((user) => user.id !== id);
+        await db.write();
+        console.log("test 3");
+        return res.sendStatus(200);
+    }
+});
 
-	if( !authHeader ) {
-		res.status(401).send({
-			message: 'You must be authenticated to view this very secret data.'
-		})
-		return
-	}
-	let token = authHeader.replace('Bearer: ', '')
-    await db.read();    
-    const channels = db.data.channels;
 
-	try {
-		const decoded = jwt.verify(token, secret)
-		console.log('GET /channel decoded: ', decoded)
-        const channel = channels.find(c => req.body.channel.toLowerCase() in c);
-        console.log(req.body.channel, channel)
-		
-        if ( ! channel ) {
-            console.log('GET /channel ' + channel.decoded + ' not found.')
-            res.sendStatus(404).json({error: 'Channel not found', message: `The channel '${channelName}' was not found.` })
-        }
 
-        console.log('GET /channel OK', channel)
-		res.status(200).json(channel)
-
-	} catch(error) {
-		console.log('GET /channel error: ' + error.message)
-		res.sendStatus(401)
-	}
-})
 
 export default router;

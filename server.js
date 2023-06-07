@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv'
 
 import usersRouter from "./api/routes/users.js"
+import channelsRouter from "./api/routes/channels.js"
 
 const app = express()
 dotenv.config()
@@ -40,7 +41,8 @@ app.get('/time', (req, res) => {
     res.send('Hello, world!');
   });
 
-app.use('/api', usersRouter)
+app.use('/api/users', usersRouter)
+app.use('/api/channels', channelsRouter)
 
 app.listen(port, () =>{
     console.log(`Server is listening on ${port}`);

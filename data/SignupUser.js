@@ -15,7 +15,7 @@ const handleSignup = async (username,password) =>{
         body: JSON.stringify(userData)
     }
 
-    const response = await fetch(API_URL + '/signup', options)
+    const response = await fetch(API_URL + '/users', options)
     const data = await response.json()
     if(data){
         return true
