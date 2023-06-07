@@ -15,23 +15,38 @@
     {
       "allmänt": [
         {
-          "userId": 30,
+          "userId": 1,
           "timestamp": 1686062498973,
           "message": "Ya Ali Madad!"
+        },
+        {
+            "userId": 659,
+            "timestamp": 1686062498974,
+            "message": "Ya Li Tharat al-Hussain!"
+        },
+        {
+            "userId": 1,
+            "timestamp": 2086062498976,
+            "message": "Vad roligt att du har hittat hit Monta!"
+        },
+        {
+            "userId": 659,
+            "timestamp": 21686062498974,
+            "message": "Tack så mycket Admin!"
         }
       ]
     },
     {
       "gaming": [
         {
-          "userId": 49,
+          "userId": 1,
           "timestamp": 1686062498973,
           "message": "Ya Hussain!"
         }
       ]
     },
     {
-      "Coding": []
+      "coding": []
     }
   ]
 }

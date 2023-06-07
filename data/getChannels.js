@@ -1,14 +1,24 @@
 import { API_URL } from "./constants"
-
+const sessionStorageKey = 'jwt'
 const handleChannels = async (channel) =>{
+    const maybeJwt = sessionStorage.getItem(sessionStorageKey)
     const options = {
         method: 'GET',
-        headers: {
-            'Content-Type': 'text/plain',
+        headers:{
+            'Content-Type': 'application/json',
         },
     }
-    console.log(API_URL + '/channel?channel=' + channel)
-    const response = await fetch(API_URL + '/channel?channel=' + channel, options );
+
+    if(maybeJwt){
+        options.headers.Authorization = "Bearer: " + maybeJwt
+    }
+
+    console.log(API_URL + '/channels/'+ channel)
+    const response = await fetch(API_URL + '/channels/' + channel, options );
+    if(response.status !== 200){
+        console.log("Error fetching channels");
+        return
+    }
     const data = await response.json();
     console.log('Response: ', data);
     return data;

@@ -5,4 +5,15 @@ const logdin = atom({
     default:false,
 })
 
-export {logdin}
+
+const channelList = atom({
+    key: 'channelList',
+    default:[],
+})
+
+const userList = atom({
+    key: 'userList',
+    default:[],
+})
+
+export {logdin, channelList, userList} 

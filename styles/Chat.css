@@ -1,0 +1,6 @@
+.right-main{
+    display: flex;
+    justify-content: end;
+    flex-direction: row;
+    
+}

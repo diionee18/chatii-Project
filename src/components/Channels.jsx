@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import { channelList } from "../../data/Atoms";
+import { useRecoilState } from "recoil";
 import { handleChannels } from "../../data/getChannels";
 import "../../styles/Channels.css";
+import ChatWindow from "../routes/Chat";
 
 const ChannelsList = () => {
-    // const {emptyChannelList, setEmptyChannelList} = useState([])
-    // const {inputChannelValue, setInputChannelValue} = useState("")
+    const [emptyChannelList, setEmptyChannelList] = useRecoilState(channelList)
     const [ channels, setChannel]  = useState("");
     const [isActive, setActive] = useState(true);
 
@@ -12,9 +14,20 @@ const ChannelsList = () => {
         const updatedChannel = "allmänt";
         setActive(!isActive)
         setChannel(updatedChannel);
+
+        let existedChannel = emptyChannelList
+
+        existedChannel.sort((a, b) => a.timestamp - b.timestamp);
+        const messages = existedChannel;
+
         try {
             const data = await handleChannels(updatedChannel);
-            console.log(data);
+            setEmptyChannelList(data)
+            console.log("meddelande", messages);
+            messages.forEach( m => {
+                console.log(m.userId + ' posted: ' + m.message);
+            })
+
         } catch (error) {
             console.error(error);
         }
@@ -24,25 +37,17 @@ const ChannelsList = () => {
         const updatedChannel = "gaming";
         setChannel(updatedChannel);
         setActive(!isActive)
+      
+
         try {
             const data = await handleChannels(updatedChannel);
+            setEmptyChannelList(data)
+            console.log("empty channelList:", emptyChannelList);
         } catch (error) {
             console.error(error);
         }
     };
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const data = await handleChannels(channels);
-                console.log(data);
-            } catch (error) {
-                console.error(error);
-            }
-        };
-    
-        fetchData();
-    }, [channels]);
 
     return (
         <>
@@ -55,6 +60,7 @@ const ChannelsList = () => {
 
             
         </div>
+        <ChatWindow/>
         </>
     );
 };
