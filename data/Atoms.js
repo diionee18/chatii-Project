@@ -19,5 +19,9 @@ const isLoggdInId = atom({
     key: 'isLoggdInId',
     default:null,
 })
+const channelNames = atom({
+    key: 'channelNames',
+    default:[],
+})
 
-export {logdin, channelList, userList, isLoggdInId} 
+export {logdin, channelList, userList, isLoggdInId, channelNames} 

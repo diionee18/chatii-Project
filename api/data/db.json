@@ -38,6 +38,11 @@
           "userId": 1,
           "timestamp": 1386062498972,
           "message": "Varsågod"
+        },
+        {
+          "userId": 659,
+          "timestamp": 1686243037142,
+          "message": "Ya Mahdi!!"
         }
       ]
     },
@@ -61,6 +66,30 @@
           "userId": 1,
           "timestamp": 1686238023572,
           "message": "Detta är ett test"
+        },
+        {
+          "userId": 659,
+          "timestamp": 1686243003734,
+          "message": "Ya Mahdi!!"
+        }
+      ]
+    },
+    {
+      "läsare": [
+        {
+          "userId": 659,
+          "timestamp": 1686247425289,
+          "message": "sagan om ringen"
+        },
+        {
+          "userId": 1,
+          "timestamp": 1686247446457,
+          "message": "ringen"
+        },
+        {
+          "userId": 1,
+          "timestamp": 1686247751202,
+          "message": "lala"
         }
       ]
     }

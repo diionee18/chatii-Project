@@ -1,27 +1,21 @@
-import { API_URL } from "./constants"
-const sessionStorageKey = 'jwt'
-const handleChannelMessages = async (channel) =>{
-    const maybeJwt = sessionStorage.getItem(sessionStorageKey)
+import { API_URL } from "./constants";
+const getChannelNames = async () => {
     const options = {
-        method: 'GET',
-        headers:{
-            'Content-Type': 'application/json',
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
         },
-    }
+    };
 
-    if(maybeJwt){
-        options.headers.Authorization = "Bearer: " + maybeJwt
-    }
-
-    console.log(API_URL + '/channels/'+ channel)
-    const response = await fetch(API_URL + '/channels/' + channel, options );
-    if(response.status !== 200){
+    console.log(API_URL + "/channels");
+    const response = await fetch(API_URL + "/channels", options);
+    if (response.status !== 200) {
         console.log("Error fetching channels");
-        return
+        return;
     }
     const data = await response.json();
-    console.log('Response: ', data);
+    console.log("Response: ", data);
     return data;
-}
+};
 
-export {handleChannelMessages}
+export { getChannelNames };

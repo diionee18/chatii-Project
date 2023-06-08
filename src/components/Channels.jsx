@@ -1,23 +1,38 @@
 import { useState, useEffect } from "react";
-import { channelList, isLoggdInId, userList } from "../../data/Atoms";
+import {
+    channelList,
+    isLoggdInId,
+    userList,
+    channelNames,
+} from "../../data/Atoms";
 import { useRecoilState } from "recoil";
 import { handleChannelMessages } from "../../data/getChannelMessages";
 import "../../styles/Channels.css";
 import ChatWindow from "../routes/Chat";
 import { getUsers } from "../../data/getUsers";
 import { Link, NavLink } from "react-router-dom";
+import { getChannelNames } from "../../data/getChannelNames";
 
 const ChannelsList = () => {
     const [emptyChannelList, setEmptyChannelList] = useRecoilState(channelList);
-    const [channels, setChannel] = useState("");
     const [isActive, setActive] = useState(true);
     const [loggedInUserId, setLoggedInUserId] = useRecoilState(isLoggdInId);
     const [chatUsers, setUsers] = useRecoilState(userList);
+
+    const [channelNamesList, setChannelNames] = useRecoilState(channelNames);
 
     const getAllUsers = async () => {
         const response = await getUsers();
         if (response) {
             setUsers(response);
+        }
+    };
+
+    const existedChannelNames = async () => {
+        const data = await getChannelNames();
+        if (data) {
+            setChannelNames(data);
+            console.log("existed:", channelNamesList, "channelNames");
         }
     };
 
@@ -34,47 +49,15 @@ const ChannelsList = () => {
         }
     }, [chatUsers]);
 
-    const onAllmäntClick = async () => {
+    useEffect(() => {
         getAllUsers();
-        const updatedChannel = "allmänt";
-        setActive(!isActive);
-        setChannel(updatedChannel);
+        existedChannelNames();
+    }, []);
 
-        let existedChannel = emptyChannelList.slice();
-
-        existedChannel.sort((a, b) => a.timestamp - b.timestamp);
-        const messages = existedChannel;
-
+    const getChannelinfo = async (whichChannel) => {
         try {
-            const data = await handleChannelMessages(updatedChannel);
+            const data = await handleChannelMessages(whichChannel);
             setEmptyChannelList(data);
-            console.log("meddelande", messages);
-            messages.forEach((m) => {
-                console.log(m.userId + " posted: " + m.message);
-            });
-        } catch (error) {
-            console.error(error);
-        }
-    };
-
-    const onGamingClick = async () => {
-        getAllUsers();
-        const updatedChannel = "gaming";
-        setChannel(updatedChannel);
-        setActive(!isActive);
-
-        let existedChannel = emptyChannelList.slice();
-
-        existedChannel.sort((a, b) => a.timestamp - b.timestamp);
-        const messages = existedChannel;
-
-        try {
-            const data = await handleChannelMessages(updatedChannel);
-            setEmptyChannelList(data);
-            console.log("empty channelList:", emptyChannelList);
-            messages.forEach((m) => {
-                console.log(m.userId + " posted: " + m.message);
-            });
         } catch (error) {
             console.error(error);
         }
@@ -89,22 +72,21 @@ const ChannelsList = () => {
                         Lägg till ny kanal
                     </NavLink>
                     <hr />
-                    <button
-                        onClick={onAllmäntClick}
-                        className={
-                            isActive ? "active-channel" : "inactive-channel"
-                        }
-                    >
-                        Allmänt 👨‍👩‍👦‍👦
-                    </button>
-                    <button
-                        onClick={onGamingClick}
-                        className={
-                            isActive ? "inactive-channel" : "active-channel"
-                        }
-                    >
-                        Gaming 🎮
-                    </button>
+                    {channelNamesList.map((channel) => {
+                        return (
+                            <div>
+                                <button onClick={(e) => getChannelinfo(channel)}
+                                    className={
+                                        isActive
+                                            ? "active-channel"
+                                            : "inactive-channel"
+                                    }
+                                >
+                                    {channel}
+                                </button>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
             <ChatWindow />

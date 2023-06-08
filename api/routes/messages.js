@@ -5,6 +5,8 @@ import dotenv from "dotenv";
 const router = express.Router();
 const db = getDb();
 
+
+// Skickar meddenlanden till specefica kanaler
 router.post("/:channelName", async (req, res) => {
     const channelName = req.params.channelName.toLowerCase();
     const message = req.body.message;

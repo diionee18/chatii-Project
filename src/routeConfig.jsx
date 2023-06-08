@@ -3,6 +3,8 @@ import Root from "./routes/Root";
 import Header from "./components/Header";
 import LoginForm from "./components/LoginForm";
 import SignupForm from "./components/SignupForm";
+import AddNewChannel from "./routes/AddChannel";
+
 // Routes
 // import Root from "../routes/Root";
 
@@ -27,6 +29,11 @@ const router = createBrowserRouter([
             {
                 path: '/signup',
                 element: <SignupForm/>
+                
+            },
+            {
+                path: '/new-channel',
+                element: <AddNewChannel/>
                 
             },
 

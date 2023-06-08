@@ -5,10 +5,11 @@ import { useRecoilState } from "recoil";
 import "../../styles/LoginForm.css";
 import { addChannel } from "../../data/addChannel";
 
-const LoginForm = () => {
+const AddNewChannel = () => {
     const [channelName, setChannelName] = useState("");
 
     const handleSubmit = async (e) => {
+        e.preventDefault()
         try {
             const response = await addChannel(channelName);
             if (response) {
@@ -43,7 +44,7 @@ const LoginForm = () => {
 
                     <div className="login-div">
                         <button type="submit" className="login-btn">
-                            Logga in
+                            Lägg till kanal
                         </button>
                     </div>
                 </div>
@@ -52,4 +53,4 @@ const LoginForm = () => {
     );
 };
 
-export default LoginForm;
+export default AddNewChannel;
