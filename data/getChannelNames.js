@@ -1,6 +1,6 @@
 import { API_URL } from "./constants"
 const sessionStorageKey = 'jwt'
-const handleChannels = async (channel) =>{
+const handleChannelMessages = async (channel) =>{
     const maybeJwt = sessionStorage.getItem(sessionStorageKey)
     const options = {
         method: 'GET',
@@ -24,5 +24,4 @@ const handleChannels = async (channel) =>{
     return data;
 }
 
-export {handleChannels}
-
+export {handleChannelMessages}
