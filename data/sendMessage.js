@@ -1,11 +1,14 @@
 import { API_URL } from "./constants";
+const sessionStorageKey = 'jwt'
 
 const sendMessage = async (message, channelName) =>{
+    const maybeJwt = sessionStorage.getItem(sessionStorageKey)
+    const currentUser = parseInt(sessionStorage.getItem("id"))
     
     const messageData = {
         channelName: channelName,
         message: message,
-        userId: sessionStorage.getItem('id'),
+        userId: currentUser
     }
 
     const options = {
@@ -15,13 +18,19 @@ const sendMessage = async (message, channelName) =>{
         },
         body: JSON.stringify(messageData)
     }
-    const response = await fetch(API_URL + '/channels/' + channelName, options);
+
+    if(maybeJwt){
+        options.headers.Authorization = "Bearer: " + maybeJwt
+    }
+
+
+    const response = await fetch(API_URL + '/messages/' + channelName, options);
     if(response.status !== 200){
         console.log("Error sending message: " + response.status);
         return
     }
     const data = await response.json();
-    console.log('Response: ', data);
+    console.log('Response: ', data, messageData.userId);
     return data;
 }
 

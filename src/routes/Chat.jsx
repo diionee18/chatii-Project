@@ -21,6 +21,7 @@ const ChatWindow = () => {
         } catch (error) {
             console.error(error);
         }
+        setMessage("")
     };
    
 
@@ -29,7 +30,7 @@ const ChatWindow = () => {
     return (
         <div className="chat-wrapper">
             <div className="modal">
-                {activChannelList.map((channel, index) => (
+                {activChannelList && activChannelList.map((channel, index) => (
                     <div
                         className="chat-window"
                         key={`${channel.userId}-${index}`}
@@ -63,7 +64,7 @@ const ChatWindow = () => {
                 ))}
             </div>
             <div className="chat-input">
-                <input onChange={(e) => setMessage(e.target.value)} type="text" placeholder="Send a message" />
+                <input value={message} onChange={(e) => setMessage(e.target.value)} type="text" placeholder="Send a message" />
 
                 <div className="send-button">
                     <button onClick={sendMessageToChannel} >

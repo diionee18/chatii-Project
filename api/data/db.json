@@ -81,6 +81,11 @@
           "userId": 659,
           "timestamp": 1686243003734,
           "message": "Ya Mahdi!!"
+        },
+        {
+          "userId": 659,
+          "timestamp": 1686435075144,
+          "message": "hej"
         }
       ]
     },
@@ -100,6 +105,11 @@
           "userId": 1,
           "timestamp": 1686247751202,
           "message": "lala"
+        },
+        {
+          "userId": 659,
+          "timestamp": 1686435239006,
+          "message": "hejsan"
         }
       ]
     }
