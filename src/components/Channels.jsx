@@ -4,6 +4,7 @@ import {
     isLoggdInId,
     userList,
     channelNames,
+    activeChannelName
 } from "../../data/Atoms";
 import { useRecoilState } from "recoil";
 import { handleChannelMessages } from "../../data/getChannelMessages";
@@ -12,15 +13,22 @@ import ChatWindow from "../routes/Chat";
 import { getUsers } from "../../data/getUsers";
 import { Link, NavLink } from "react-router-dom";
 import { getChannelNames } from "../../data/getChannelNames";
+import { useParams } from "react-router-dom";
 
 const ChannelsList = () => {
     const [emptyChannelList, setEmptyChannelList] = useRecoilState(channelList);
-    const [isActive, setActive] = useState(true);
+    const [isActive] = useState(true);
     const [loggedInUserId, setLoggedInUserId] = useRecoilState(isLoggdInId);
     const [chatUsers, setUsers] = useRecoilState(userList);
+    const [channelNamesList] = useRecoilState(channelNames);
+    const [channelUrl, setChannelUrl] = useState();
+    const [activChannel, setActivChannel] = useRecoilState(activeChannelName)
 
-    const [channelNamesList, setChannelNames] = useRecoilState(channelNames);
-
+    useEffect(() => {
+        let selectedChannel = channelNamesList.find((c) => c.userId == useParams.name)
+        setChannelUrl(selectedChannel)
+    }, [channelNamesList])
+    
     const getAllUsers = async () => {
         const response = await getUsers();
         if (response) {
@@ -31,7 +39,7 @@ const ChannelsList = () => {
     const existedChannelNames = async () => {
         const data = await getChannelNames();
         if (data) {
-            setChannelNames(data);
+            setChannelUrl(data);
             console.log("existed:", channelNamesList, "channelNames");
         }
     };
@@ -58,6 +66,7 @@ const ChannelsList = () => {
         try {
             const data = await handleChannelMessages(whichChannel);
             setEmptyChannelList(data);
+            setActivChannel(whichChannel)
         } catch (error) {
             console.error(error);
         }
@@ -72,10 +81,10 @@ const ChannelsList = () => {
                         Lägg till ny kanal
                     </NavLink>
                     <hr />
-                    {channelNamesList.map((channel) => {
+                    {channelUrl && channelUrl.map((channel) => {
                         return (
                             <div>
-                                <button onClick={(e) => getChannelinfo(channel)}
+                                <NavLink to={"/channel/" + channel} onClick={(e) => getChannelinfo(channel)}
                                     className={
                                         isActive
                                             ? "active-channel"
@@ -83,13 +92,13 @@ const ChannelsList = () => {
                                     }
                                 >
                                     {channel}
-                                </button>
+                                </NavLink>
                             </div>
                         );
                     })}
                 </div>
             </div>
-            <ChatWindow />
+            {/* <ChatWindow /> */}
         </>
     );
 };

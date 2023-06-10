@@ -43,6 +43,16 @@
           "userId": 659,
           "timestamp": 1686243037142,
           "message": "Ya Mahdi!!"
+        },
+        {
+          "userId": 659,
+          "timestamp": 1686243037142,
+          "message": "Test"
+        },
+        {
+          "userId": 1,
+          "timestamp": 1686423286351,
+          "message": "test för body namn"
         }
       ]
     },
