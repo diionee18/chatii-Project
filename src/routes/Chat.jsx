@@ -12,7 +12,7 @@ import { getUsers } from "../data/getUsers";
 import { faPaperPlane } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { sendMessage } from "../data/sendMessage";
-import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { faPen, faPenToSquare, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { editedMessage } from "../data/editMessage";
 
 const ChatWindow = () => {
@@ -72,58 +72,37 @@ const ChatWindow = () => {
                         );
 
                         return (
-                            <div
-                                className="chat-window"
-                                key={`${channel.userId}-${index}`}
-                            >
+                            <div className="chat-window" key={`${channel.userId}-${index}`}>
                                 {channel.userId === loggedInUserId ? (
                                     <div className="right-main">
                                         <div className="right-convo-look">
                                             <div className="right-convo-message">{channel.message}</div>
 
-                                            <div>
-                                                {hours}:{minutes}
-                                                {channel.userId}
-                                                <button
-                                                type="none"
-                                                    onClick={() => clickEditMessage(channel.timestamp)}
+                                            <div> {hours}:{minutes} {channel.userId} <button type="none" onClick={() => clickEditMessage(channel.timestamp)}
                                                     className="edit-message"
-                                                >
-                                                    <FontAwesomeIcon
-                                                        icon={faPenToSquare}
-                                                    />
-                                                </button>
+                                                ><FontAwesomeIcon size="sm" icon={faPen}/></button>
 
 
                                                 { showInput && currenttimeStamp ===
                                                 channel.timestamp ? (
-                                                    <div className="chat-input">
-                                                        <input
-                                                            onChange={(e) =>
-                                                                setNewMessage(
-                                                                    e.target
-                                                                        .value
-                                                                )
-                                                            }
+                                                    <div className="chat-input ">
+                                                        <input onChange={(e) => setNewMessage(e.target.value)}
                                                             type="text"
                                                             placeholder="Redigera meddelande"
                                                         />
 
                                                         <div className="send-button">
-                                                            <button
-                                                                onClick={ () =>
-                                                                    sendNewMessage()
-                                                                }
-                                                            >
-                                                                <FontAwesomeIcon
-                                                                    color="white"
-                                                                    icon={
-                                                                        faPaperPlane
-                                                                    }
-                                                                    size="2xl"
-                                                                />
+                                                            <button className="edit-button" onClick={ () => sendNewMessage()}>
+                                                                <FontAwesomeIcon color="white" icon={faPaperPlane} size="2xl"/>
                                                             </button>
                                                         </div>
+                                                        
+                                                        <div className="send-button">
+                                                            <button onClick={ () => setShowInput(false)}>
+                                                                <FontAwesomeIcon color="white" icon={faXmark} size="2xl"/>
+                                                            </button>
+                                                        </div>
+
                                                     </div>
                                                 ) : null}
                                             </div>
@@ -137,7 +116,6 @@ const ChatWindow = () => {
                                             </div>
 
                                             <div>
-                                                {" "}
                                                 {channel.userId} {hours}:
                                                 {minutes}
                                             </div>

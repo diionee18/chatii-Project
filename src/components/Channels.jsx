@@ -124,7 +124,7 @@ const ChannelsList = () => {
                             ) : null;
 
                             return (
-                                <div>
+                                <div key={channel}>
                                     <NavLink
                                         to={"/channel/" + channel}
                                         onClick={(e) => getChannelinfo(channel)}
