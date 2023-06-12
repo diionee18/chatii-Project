@@ -31,28 +31,23 @@
         },
         {
           "userId": 1,
-          "timestamp": 1386062498972,
-          "message": "Varsågod"
-        },
-        {
-          "userId": 659,
-          "timestamp": 1686243037142,
-          "message": "Test"
-        },
-        {
-          "userId": 1,
           "timestamp": 1686423286351,
           "message": "test för body namn"
         },
         {
           "userId": 659,
           "timestamp": 1686528568239,
-          "message": "Test 2"
+          "message": "Detta meddelande är redigerat"
         },
         {
           "userId": 659,
           "timestamp": 1686528656829,
           "message": "a"
+        },
+        {
+          "userId": 659,
+          "timestamp": 1686574447937,
+          "message": "Hej"
         }
       ]
     },
