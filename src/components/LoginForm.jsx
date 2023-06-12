@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { handleLogin } from "../../data/LoginUser";
-import { logdin } from "../../data/Atoms";
+import { handleLogin } from "../data/LoginUser";
+import { logdin } from "../data/Atoms";
 import { useRecoilState } from "recoil";
 import "../../styles/LoginForm.css";
 

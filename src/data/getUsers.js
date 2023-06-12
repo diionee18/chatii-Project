@@ -1,7 +1,3 @@
-import { API_URL } from "./constants"
-import { useRecoilState } from "recoil"
-import { userList } from "./Atoms"
-
 const getUsers = async () =>{
 
     const options = {
@@ -12,8 +8,7 @@ const getUsers = async () =>{
     }
 
 
-    console.log(API_URL + '/users')
-    const response = await fetch(API_URL + '/users', options );
+    const response = await fetch('/api/users', options );
     if(response.status !== 200){
         console.log("Error fetching users");
         return

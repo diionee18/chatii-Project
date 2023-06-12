@@ -7,14 +7,14 @@ import {
     activeChannelName,
     authorizationError,
     logdin,
-} from "../../data/Atoms";
+} from "../data/Atoms";
 import { useRecoilState } from "recoil";
-import { handleChannelMessages } from "../../data/getChannelMessages";
+import { handleChannelMessages } from "../data/getChannelMessages";
 import "../../styles/Channels.css";
 import ChatWindow from "../routes/Chat";
-import { getUsers } from "../../data/getUsers";
+import { getUsers } from "../data/getUsers.js";
 import { Link, NavLink } from "react-router-dom";
-import { getChannelNames } from "../../data/getChannelNames";
+import { getChannelNames } from "../data/getChannelNames";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {

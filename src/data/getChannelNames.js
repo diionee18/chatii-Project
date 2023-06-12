@@ -1,4 +1,3 @@
-import { API_URL } from "./constants";
 const getChannelNames = async () => {
     const options = {
         method: "GET",
@@ -7,8 +6,7 @@ const getChannelNames = async () => {
         },
     };
 
-    console.log(API_URL + "/channels");
-    const response = await fetch(API_URL + "/channels", options);
+    const response = await fetch("/api/channels", options);
     if (response.status !== 200) {
         console.log("Error fetching channels");
         return;

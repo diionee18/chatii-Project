@@ -4,14 +4,14 @@ import {
     isLoggdInId,
     activeChannelName,
     authorizationError,
-} from "../../data/Atoms";
+} from "../data/Atoms";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import "../../styles/Chat.css";
-import { getUsers } from "../../data/getUsers";
+import { getUsers } from "../data/getUsers";
 import { faPaperPlane } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { sendMessage } from "../../data/sendMessage";
+import { sendMessage } from "../data/sendMessage";
 
 const ChatWindow = () => {
     const [activChannelList] = useRecoilState(channelList);

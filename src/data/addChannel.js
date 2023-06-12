@@ -1,5 +1,3 @@
-import { API_URL } from "./constants";
-
 const addChannel = async (channelName) =>{
 
     const channelData = {
@@ -13,7 +11,7 @@ const addChannel = async (channelName) =>{
         },
         body: JSON.stringify(channelData)
     }
-    const response = await fetch(API_URL + "/channels", options)
+    const response = await fetch("/api/channels", options)
     const data = await response.json()
     if(data){
         return true

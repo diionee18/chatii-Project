@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import "../../styles/Header.css";
 import { useState } from "react";
-import { logdin } from "../../data/Atoms";
+import { logdin } from "../data/Atoms";
 import { useRecoilState } from "recoil";
 import ChannelsList from "./Channels";
-import { handleLogout } from "../../data/LoginUser";
+import { handleLogout } from "../data/LoginUser";
 
 const Header = () => {
     const [isActive, setActive] = useState(true);

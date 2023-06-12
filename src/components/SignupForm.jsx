@@ -1,4 +1,4 @@
-import { handleSignup } from "../../data/SignupUser";
+import { handleSignup } from "../data/SignupUser";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 

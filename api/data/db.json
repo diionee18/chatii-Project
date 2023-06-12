@@ -119,6 +119,16 @@
           "userId": 0,
           "timestamp": 1686521159783,
           "message": "Hej"
+        },
+        {
+          "userId": 0,
+          "timestamp": 1686554990340,
+          "message": "Hej David!"
+        },
+        {
+          "userId": 1,
+          "timestamp": 1686555084305,
+          "message": "Hej Guest!"
         }
       ]
     }

@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { logdin } from "../../data/Atoms";
+import { logdin } from "../data/Atoms";
 import { useRecoilState } from "recoil";
 import "../../styles/LoginForm.css";
-import { addChannel } from "../../data/addChannel";
+import { addChannel } from "../data/addChannel.js";
 
 const AddNewChannel = () => {
     const [channelName, setChannelName] = useState("");

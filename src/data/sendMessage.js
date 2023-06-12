@@ -1,4 +1,3 @@
-import { API_URL } from "./constants";
 const sessionStorageKey = 'jwt'
 
 const sendMessage = async (message, channelName) =>{
@@ -24,7 +23,7 @@ const sendMessage = async (message, channelName) =>{
     }
 
 
-    const response = await fetch(API_URL + '/messages/' + channelName, options);
+    const response = await fetch( '/api/messages/' + channelName, options);
     if(response.status !== 200){
         console.log("Error sending message: " + response.status);
         return

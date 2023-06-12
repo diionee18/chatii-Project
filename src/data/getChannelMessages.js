@@ -1,4 +1,3 @@
-import { API_URL } from "./constants"
 const sessionStorageKey = 'jwt'
 const handleChannelMessages = async (channel) =>{
     window.addEventListener("beforeunload", function() {
@@ -17,8 +16,8 @@ const handleChannelMessages = async (channel) =>{
         options.headers.Authorization = "Bearer: " + maybeJwt
     }
 
-    console.log(API_URL + '/channels/'+ channel)
-    const response = await fetch(API_URL + '/channels/' + channel, options );
+    console.log('/api/channels/' + channel)
+    const response = await fetch('/api/channels/' + channel, options );
     if(response.status !== 200){
         console.log("Error fetching channels");
         return

@@ -1,12 +1,5 @@
-import { API_URL } from "./constants"
-
-
 const sessionStorageKey = 'jwt'
 const handleLogin = async (username, password) =>{
-    // window.location.reload();
-    // sessionStorage.clear("jwt");
-    // Om det redan finns en token avslutar vi direkt.
-
     
     if (sessionStorage.getItem(sessionStorageKey) != null) {
         return;
@@ -25,7 +18,7 @@ const handleLogin = async (username, password) =>{
         body: JSON.stringify(userData)
     }
 
-    const response = await fetch(API_URL + '/users' + '/login' , options)
+    const response = await fetch('/api/users/login' , options)
     if(response.status !== 401){
         const data = await response.json()
         sessionStorage.setItem(sessionStorageKey, data.token)
