@@ -79,10 +79,7 @@ const ChatWindow = () => {
                                 {channel.userId === loggedInUserId ? (
                                     <div className="right-main">
                                         <div className="right-convo-look">
-                                            <div className="right-convo-message">
-                                                {" "}
-                                                {channel.message}
-                                            </div>
+                                            <div className="right-convo-message">{channel.message}</div>
 
                                             <div>
                                                 {hours}:{minutes}
@@ -109,7 +106,7 @@ const ChatWindow = () => {
                                                                 )
                                                             }
                                                             type="text"
-                                                            placeholder="Send a message"
+                                                            placeholder="Redigera meddelande"
                                                         />
 
                                                         <div className="send-button">

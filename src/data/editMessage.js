@@ -2,7 +2,7 @@ const editedMessage = async (message, timeStamp, channelName) => {
     
     const messageData = {
         message: message,
-        timpestamp: timeStamp
+        timestamp: timeStamp
     }
     const options = {
         method: 'PUT',
@@ -13,13 +13,12 @@ const editedMessage = async (message, timeStamp, channelName) => {
     }
 
     const response = await fetch( "/api/messages/" + channelName, options);
-    if(response.status !== 200){
-        console.log("Error sending message: " + response.status);
-        return
-    }
     const data = await response.json();
-    console.log('Response: ', data);
-    return data;
+    if(data){
+        console.log('Response: ', data);
+        return true
+    }
+    
 }
 
 export {editedMessage}
