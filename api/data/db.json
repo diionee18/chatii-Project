@@ -1,6 +1,11 @@
 {
   "users": [
     {
+      "id": 0,
+      "name": "Guest",
+      "password": ""
+    },
+    {
       "id": 1,
       "name": "admin",
       "password": "mums"
@@ -13,17 +18,7 @@
   ],
   "channels": [
     {
-      "allmänt": [
-        {
-          "userId": 1,
-          "timestamp": 1686062498973,
-          "message": "Ya Ali Madad!"
-        },
-        {
-          "userId": 659,
-          "timestamp": 1686062498974,
-          "message": "Ya Li Tharat al-Hussain!"
-        },
+      "procode": [
         {
           "userId": 1,
           "timestamp": 2086062498976,
@@ -42,27 +37,27 @@
         {
           "userId": 659,
           "timestamp": 1686243037142,
-          "message": "Ya Mahdi!!"
-        },
-        {
-          "userId": 659,
-          "timestamp": 1686243037142,
           "message": "Test"
         },
         {
           "userId": 1,
           "timestamp": 1686423286351,
           "message": "test för body namn"
+        },
+        {
+          "userId": 659,
+          "timestamp": 1686528568239,
+          "message": "Test 2"
+        },
+        {
+          "userId": 659,
+          "timestamp": 1686528656829,
+          "message": "a"
         }
       ]
     },
     {
       "gaming": [
-        {
-          "userId": 1,
-          "timestamp": 1686062498973,
-          "message": "Ya Hussain!"
-        },
         {
           "userId": 1,
           "timestamp": 1686237621146,
@@ -79,13 +74,13 @@
         },
         {
           "userId": 659,
-          "timestamp": 1686243003734,
-          "message": "Ya Mahdi!!"
+          "timestamp": 1686435075144,
+          "message": "hej"
         },
         {
           "userId": 659,
-          "timestamp": 1686435075144,
-          "message": "hej"
+          "timestamp": 1686517496657,
+          "message": "hejjjjjjjjjjjjjjjjjjjjjjjjjjjjjj"
         }
       ]
     },
@@ -110,6 +105,20 @@
           "userId": 659,
           "timestamp": 1686435239006,
           "message": "hejsan"
+        }
+      ]
+    },
+    {
+      "open": [
+        {
+          "userId": 659,
+          "timestamp": 1686435239006,
+          "message": "hejsan"
+        },
+        {
+          "userId": 0,
+          "timestamp": 1686521159783,
+          "message": "Hej"
         }
       ]
     }

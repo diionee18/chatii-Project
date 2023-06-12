@@ -3,15 +3,18 @@
 }
 
 .chat-wrapper{
-    background-color: #e7e7e9;
-    margin-left: 10em;
+    background: rgb(2,0,36);
+    background: linear-gradient(40deg, rgba(2,0,36,1) 0%, rgba(92,92,164,1) 0%, rgba(132,179,255,1) 81%);
+    margin-left: 11em;
     height: 100%;
 
 }
 
 .modal{
+    overflow-y: hidden;
     padding: 2em 6em;
-    height: 50vh;
+    min-height: 84.4vh;
+    max-height: 84.4vh;
     overflow-y: scroll;
 }
 
@@ -19,11 +22,7 @@
     display: flex;
     justify-content: end;
     flex-direction: row;  
-}
-.left-main{
-    display: flex;
-    justify-content: start;
-    flex-direction: row;  
+    
 }
 
 .right-convo-look{
@@ -46,6 +45,11 @@
 
 
 /* left side */
+.left-main{
+    display: flex;
+    justify-content: start;
+    flex-direction: row;  
+}
 .left-convo-look{
     display: flex;
     flex-direction: column;
@@ -67,7 +71,7 @@
 .chat-input{
     display: flex;
     justify-content: center;
-    background-color: #e7e7e9;
+    background: linear-gradient(40deg, rgba(2,0,36,1) 0%, rgba(92,92,164,1) 0%, rgba(132,179,255,1) 81%);
     padding: 1em;
 }
 
@@ -84,5 +88,18 @@
     background-color: #4664FF;
     border: none;
     cursor: pointer;
+
+}
+
+/* error message */
+.error-message{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.error-message h1{
+    margin-top: 5em;
 
 }

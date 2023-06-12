@@ -27,5 +27,9 @@ const activeChannelName = atom({
     key: 'activeChannelName',
     default:"",
 })
+const authorizationError = atom({
+    key: 'errorMessage',
+    default:true,
+})
 
-export {logdin, channelList, userList, isLoggdInId, channelNames, activeChannelName} 
+export {logdin, channelList, userList, isLoggdInId, channelNames, activeChannelName, authorizationError} 

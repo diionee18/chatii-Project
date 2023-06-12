@@ -1,6 +1,10 @@
 import { API_URL } from "./constants"
 const sessionStorageKey = 'jwt'
 const handleChannelMessages = async (channel) =>{
+    window.addEventListener("beforeunload", function() {
+        // Rensa den specifika datan från sessionStorage
+        sessionStorage.removeItem("jwt");
+      });
     const maybeJwt = sessionStorage.getItem(sessionStorageKey)
     const options = {
         method: 'GET',

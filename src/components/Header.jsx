@@ -47,10 +47,10 @@ const Header = () => {
                 }
                 </div>
             </div>
-            {isLogdin &&
+            
             
             <ChannelsList/>
-            }
+            
         </header>
     );
 };

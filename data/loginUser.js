@@ -3,7 +3,11 @@ import { API_URL } from "./constants"
 
 const sessionStorageKey = 'jwt'
 const handleLogin = async (username, password) =>{
+    // window.location.reload();
+    // sessionStorage.clear("jwt");
     // Om det redan finns en token avslutar vi direkt.
+
+    
     if (sessionStorage.getItem(sessionStorageKey) != null) {
         return;
     }
@@ -36,6 +40,7 @@ const handleLogin = async (username, password) =>{
 }
 
 const handleLogout = async () =>{
+    sessionStorage.setItem("id", "0")
     sessionStorage.removeItem(sessionStorageKey)
 
 }

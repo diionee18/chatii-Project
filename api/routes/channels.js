@@ -19,25 +19,34 @@ router.get("/", async (req, res) => {
 
 // Kom åt en specific kanal
 router.get("/:channelName", async (req, res) => {
-    let authHeader = req.headers.authorization;
+    const channelName = req.params.channelName.toLowerCase();
+    if (channelName !== "open"){
+        let authHeader = req.headers.authorization;
+    
+        if (!authHeader) {
+            res.status(401).json({
+                message: "You must be authenticated to view this very secret data.",
+            });
+            return;
+        }
 
-    if (!authHeader) {
-        res.status(401).json({
-            message: "You must be authenticated to view this very secret data.",
-        });
-        return;
+        let token = authHeader.replace("Bearer: ", "");
+        const decoded = jwt.verify(token, secret);
+        if ( !decoded ) {
+            res.status(401).json({
+                message: "You must be authenticated to view this very secret data.",
+            });
+            return;
+        }
+
+        console.log("GET /:channelName decoded: ", decoded);
     }
-
-    let token = authHeader.replace("Bearer: ", "");
 
     await db.read();
     const channels = db.data.channels;
 
     try {
-        const decoded = jwt.verify(token, secret);
-        console.log("GET /:channelName decoded: ", decoded);
 
-        const channelName = req.params.channelName.toLowerCase();
         const channel = channels.find((c) => channelName in c);
         const users = db.data.users;
 
