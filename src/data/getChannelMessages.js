@@ -16,8 +16,7 @@ const handleChannelMessages = async (channel) =>{
         options.headers.Authorization = "Bearer: " + maybeJwt
     }
 
-    console.log('/api/channels/' + channel)
-    const response = await fetch('/api/channels/' + channel, options );
+    const response = await fetch('/api/messages/' + channel, options );
     if(response.status !== 200){
         console.log("Error fetching channels");
         return

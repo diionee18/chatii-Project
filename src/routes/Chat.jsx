@@ -9,11 +9,12 @@ import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import "../../styles/Chat.css";
 import { getUsers } from "../data/getUsers";
-import { faPaperPlane } from "@fortawesome/free-regular-svg-icons";
+import { faPaperPlane, faTrashAlt, faTrashCan } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { sendMessage } from "../data/sendMessage";
 import { faPen, faPenToSquare, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { editedMessage } from "../data/editMessage";
+import { deleteMessage } from "../data/deleteMessage";
 
 const ChatWindow = () => {
     const [activChannelList] = useRecoilState(channelList);
@@ -29,6 +30,16 @@ const ChatWindow = () => {
         setTimeStamp(timeStamp);
         setShowInput(true);
         console.log(currenttimeStamp);
+    };
+   
+    const messageToDelete = async (timeStamp) => {
+      try{
+          const response = await deleteMessage(timeStamp, activChannel)
+          console.log("Meddelande bortagen");
+
+      }catch(error){
+        console.log(error);
+      }
     };
 
     const sendNewMessage = async () => {
@@ -78,9 +89,16 @@ const ChatWindow = () => {
                                         <div className="right-convo-look">
                                             <div className="right-convo-message">{channel.message}</div>
 
-                                            <div> {hours}:{minutes} {channel.userId} <button type="none" onClick={() => clickEditMessage(channel.timestamp)}
+                                            <div> {hours}:{minutes} {channel.userId} 
+                                         
+                                            <button type="none" onClick={() => clickEditMessage(channel.timestamp)}
                                                     className="edit-message"
                                                 ><FontAwesomeIcon size="sm" icon={faPen}/></button>
+
+                                            <button type="none" onClick={() => messageToDelete(channel.timestamp)}
+                                                    className="edit-message"
+                                                ><FontAwesomeIcon icon={faTrashCan} size="lg" /></button>
+                                               
 
 
                                                 { showInput && currenttimeStamp ===

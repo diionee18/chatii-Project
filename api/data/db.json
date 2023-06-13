@@ -30,11 +30,6 @@
           "message": "Tack så mycket!"
         },
         {
-          "userId": 1,
-          "timestamp": 1686423286351,
-          "message": "test för body namn"
-        },
-        {
           "userId": 659,
           "timestamp": 1686528568239,
           "message": "Detta meddelande är redigerat"
@@ -48,6 +43,16 @@
           "userId": 659,
           "timestamp": 1686574447937,
           "message": "lolll"
+        },
+        {
+          "userId": 1,
+          "timestamp": 1686693950379,
+          "message": "Hej"
+        },
+        {
+          "userId": 1,
+          "timestamp": 1686693959240,
+          "message": "Vad görs?"
         }
       ]
     },
@@ -92,11 +97,6 @@
           "message": "ringen"
         },
         {
-          "userId": 1,
-          "timestamp": 1686247751202,
-          "message": "lala"
-        },
-        {
           "userId": 659,
           "timestamp": 1686435239006,
           "message": "Lyx"
@@ -105,11 +105,6 @@
     },
     {
       "open": [
-        {
-          "userId": 659,
-          "timestamp": 1686435239006,
-          "message": "mama"
-        },
         {
           "userId": 0,
           "timestamp": 1686521159783,
