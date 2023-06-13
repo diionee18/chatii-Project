@@ -82,10 +82,7 @@ const ChannelsList = () => {
 
             if (matchingUser) {
                 setLoggedInUserId(matchingUser.name);
-            } else {
-                sessionStorage.setItem("id", "0");
-            }
-
+            } 
             console.log("inloggad nu", loggedInUserId);
         } catch (error) {
             console.error(error);
