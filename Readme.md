@@ -1,0 +1,10 @@
+|     Method    |     URL              |     URL Params      |     Body                                       |     Response                                                                         |
+|---------------|----------------------|---------------------|------------------------------------------------|--------------------------------------------------------------------------------------|
+|     GET       |     /api/channels    |     -               |     -                                          |     Hämtar alla kanalnamn.                                                           |
+|     GET       |     /api/channels    |     /channelName    |     channelName                                |     Hämtar alla meddelanden i kanalen channelName.                                   |
+|     POST      |     /api/channels    |     -               |     name                                       |     Skapar en ny kanal med namnet name.                                              |
+|     POST      |     /api/messages    |     /channelName    |     channelName, message, userId, timestamp    |     Skickar meddelanden till channelName                                             |
+|     GET       |     /api/users       |     -               |     -                                          |     Hämtar alla användare                                                            |
+|     POST      |     /api/users       |     /login          |     username, userPassword                     |     Låter användaren logga in efter en kontroll om   användaren finns i databasen    |
+|     POST      |     /api/users       |     -               |     username, userPassword                     |     Skapar en ny användare                                                           |
+|     DELETE    |     /api/users       |     /:id            |     id                                         |     Raderar en användare                                                             |
