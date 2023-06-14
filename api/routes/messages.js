@@ -47,6 +47,7 @@ router.get("/:channelName", async (req, res) => {
                 error: "Channel not found",
                 message: `The channel '${channelName}' was not found.`,
             });
+            return
         }
 
         console.log("GET /:channelName OK", channel);

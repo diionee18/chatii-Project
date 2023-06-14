@@ -27,7 +27,7 @@ router.post("/", async (req, res) => {
     const existedChannels = db.data.channels.map(
         (channel) => Object.keys(channel)[0]
     );
-    const newChannelName = req.body.name;
+    const newChannelName = req.body.name.toLowerCase();
 
     function generateId() {
         let id = Math.floor(Math.random() * 1000);

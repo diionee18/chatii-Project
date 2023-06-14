@@ -55,11 +55,6 @@
           "message": "Hej"
         },
         {
-          "userId": 1,
-          "timestamp": 1686693959240,
-          "message": "Vad görs?"
-        },
-        {
           "userId": 0,
           "timestamp": 1686694213669,
           "message": "Hej"
@@ -149,6 +144,15 @@
           "userId": 0,
           "timestamp": 1686694350514,
           "message": "hej"
+        }
+      ]
+    },
+    {
+      "test1": [
+        {
+          "userId": 1,
+          "timestamp": 1686743715549,
+          "message": "Hej"
         }
       ]
     }
