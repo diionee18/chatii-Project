@@ -17,7 +17,6 @@ router.get("/", async (req, res) => {
     res.status(200).send(channelNames);
 });
 
-// Kom åt en specific kanal
 
 
 // Lägg till kanaler

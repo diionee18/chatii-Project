@@ -13,7 +13,6 @@ const AddNewChannel = () => {
         try {
             const response = await addChannel(channelName);
             if (response) {
-                console.log("Added channel" + channelName + response);
                 return;
             }
         } catch (error) {

@@ -19,6 +19,11 @@
       "id": 569,
       "name": "diionee",
       "password": "Ali17ali17"
+    },
+    {
+      "id": 792,
+      "name": "Malin",
+      "password": "Malin123"
     }
   ],
   "channels": [
@@ -55,11 +60,6 @@
           "message": "Hej"
         },
         {
-          "userId": 0,
-          "timestamp": 1686694213669,
-          "message": "Hej"
-        },
-        {
           "userId": 569,
           "timestamp": 1686694432798,
           "message": "Hejsan"
@@ -72,6 +72,11 @@
           "userId": 1,
           "timestamp": 1686237621146,
           "message": "Detta är ett test"
+        },
+        {
+          "userId": 1,
+          "timestamp": 1686744703721,
+          "message": "Hallå där!"
         }
       ]
     },
@@ -144,6 +149,16 @@
           "userId": 0,
           "timestamp": 1686694350514,
           "message": "hej"
+        },
+        {
+          "userId": 0,
+          "timestamp": 1686744777953,
+          "message": "Hej Malin"
+        },
+        {
+          "userId": 792,
+          "timestamp": 1686744826706,
+          "message": "Hej jag heter Malin"
         }
       ]
     },

@@ -15,7 +15,7 @@ const LoginForm = () => {
     
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log(userName, userPassword);
+    
 
         try{
             const response = await handleLogin(userName, userPassword)
@@ -25,7 +25,7 @@ const LoginForm = () => {
             }
            
         }catch (error){
-            console.log(error.message);
+         
             setLogdin(false)
         }
 

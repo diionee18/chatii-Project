@@ -12,7 +12,6 @@ const SignupForm = () => {
         try{
             const result = await handleSignup(userName, userPassword)
             if (result){
-                console.log('User created successfully');
                 return
             }
 

@@ -29,13 +29,13 @@ const ChatWindow = () => {
     const clickEditMessage = (timeStamp) => {
         setTimeStamp(timeStamp);
         setShowInput(true);
-        console.log(currenttimeStamp);
+       
     };
    
     const messageToDelete = async (timeStamp) => {
       try{
           const response = await deleteMessage(timeStamp, activChannel)
-          console.log("Meddelande bortagen");
+       
 
       }catch(error){
         console.log(error);
@@ -58,7 +58,6 @@ const ChatWindow = () => {
     };
 
     const sendMessageToChannel = async () => {
-        console.log(errorMessage);
         try {
             const data = await sendMessage(message, activChannel);
         } catch (error) {

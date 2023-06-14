@@ -52,7 +52,7 @@ const ChannelsList = () => {
         const data = await getChannelNames();
         if (data) {
             setChannelUrl(data);
-            console.log("existed:", channelNamesList, "channelNames");
+           
         }
     };
 
@@ -67,7 +67,7 @@ const ChannelsList = () => {
             const data = await handleChannelMessages(whichChannel);
             if (!data) {
                 setErrorMessage(true);
-                console.log("You need to login to rewiew the channel");
+                
             }
             setEmptyChannelList(data);
             setActivChannel(whichChannel);
@@ -83,7 +83,7 @@ const ChannelsList = () => {
             if (matchingUser) {
                 setLoggedInUserId(matchingUser.name);
             } 
-            console.log("inloggad nu", loggedInUserId);
+         
         } catch (error) {
             console.error(error);
         }
