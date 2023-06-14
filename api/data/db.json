@@ -1,0 +1,156 @@
+{
+  "users": [
+    {
+      "id": 0,
+      "name": "Guest",
+      "password": ""
+    },
+    {
+      "id": 1,
+      "name": "admin",
+      "password": "mums"
+    },
+    {
+      "id": 659,
+      "name": "monta",
+      "password": "ramen"
+    },
+    {
+      "id": 569,
+      "name": "diionee",
+      "password": "Ali17ali17"
+    }
+  ],
+  "channels": [
+    {
+      "procode": [
+        {
+          "userId": 1,
+          "timestamp": 2086062498976,
+          "message": "Vad roligt att du har hittat hit Monta!"
+        },
+        {
+          "userId": 659,
+          "timestamp": 21686062498974,
+          "message": "Tack så mycket!"
+        },
+        {
+          "userId": 659,
+          "timestamp": 1686528568239,
+          "message": "Detta meddelande är redigerat"
+        },
+        {
+          "userId": 659,
+          "timestamp": 1686528656829,
+          "message": "a"
+        },
+        {
+          "userId": 659,
+          "timestamp": 1686574447937,
+          "message": "lolll"
+        },
+        {
+          "userId": 1,
+          "timestamp": 1686693950379,
+          "message": "Hej"
+        },
+        {
+          "userId": 1,
+          "timestamp": 1686693959240,
+          "message": "Vad görs?"
+        },
+        {
+          "userId": 0,
+          "timestamp": 1686694213669,
+          "message": "Hej"
+        },
+        {
+          "userId": 569,
+          "timestamp": 1686694432798,
+          "message": "Hejsan"
+        }
+      ]
+    },
+    {
+      "gaming": [
+        {
+          "userId": 1,
+          "timestamp": 1686237621146,
+          "message": "Detta är ett test"
+        }
+      ]
+    },
+    {
+      "coding": [
+        {
+          "userId": 1,
+          "timestamp": 1686238023572,
+          "message": "Detta är ett test"
+        },
+        {
+          "userId": 659,
+          "timestamp": 1686435075144,
+          "message": "hej"
+        },
+        {
+          "userId": 659,
+          "timestamp": 1686517496657,
+          "message": "hejjjjjjjjjjjjjjjjjjjjjjjjjjjjjj"
+        }
+      ]
+    },
+    {
+      "läsare": [
+        {
+          "userId": 659,
+          "timestamp": 1686247425289,
+          "message": "sagan om ringen"
+        },
+        {
+          "userId": 1,
+          "timestamp": 1686247446457,
+          "message": "ringen"
+        },
+        {
+          "userId": 659,
+          "timestamp": 1686435239006,
+          "message": "Lyx"
+        },
+        {
+          "userId": 0,
+          "timestamp": 1686694226303,
+          "message": "Hej"
+        },
+        {
+          "userId": 569,
+          "timestamp": 1686694338451,
+          "message": "Hej"
+        }
+      ]
+    },
+    {
+      "open": [
+        {
+          "userId": 0,
+          "timestamp": 1686521159783,
+          "message": "Hej"
+        },
+        {
+          "userId": 0,
+          "timestamp": 1686554990340,
+          "message": "Hej David!"
+        },
+        {
+          "userId": 1,
+          "timestamp": 1686555084305,
+          "message": "Hej Guest!"
+        },
+        {
+          "userId": 0,
+          "timestamp": 1686694350514,
+          "message": "hej"
+        }
+      ]
+    }
+  ]
+}
