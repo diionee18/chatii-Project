@@ -49,7 +49,7 @@ const Header = () => {
             </div>
             
             
-            <ChannelsList/>
+            {/* <ChannelsList/> */}
             
         </header>
     );

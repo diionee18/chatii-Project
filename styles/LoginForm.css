@@ -1,12 +1,13 @@
 .main-form{
-    position: absolute;
-    width: 100%;
+    grid-area: 1 / 2 / 6 / 6; 
+    color: white;
+    /* z-index: 1; */
+    background: linear-gradient(40deg, rgba(2,0,36,1) 0%, rgba(92,92,164,1) 0%, rgba(132,179,255,1) 81%);
     display: flex;
     justify-content: center;
-    align-content: start;
-    margin-top: 2em;
-    color: white;
-    z-index: -2;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* padding: 50px 25em; */
 }
 
 .main-form h2{
@@ -14,18 +15,22 @@
 }
 
 .form-div{
-    padding: 8em;
-    background: linear-gradient(40deg, rgba(2,0,36,1) 0%, rgba(92,92,164,1) 0%, rgba(132,179,255,1) 81%);
+    padding: 2em 0; 
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
     gap: 1em;
+    border: 2px solid white;
+
 }
 
 .input-div{
-    align-items: start;
+    align-items: center;
     display: flex;
     flex-direction: column;
+}
+.input-div input{
+    padding: .3em;
 }
 
 .login-div{
@@ -50,3 +55,30 @@
     border: 2px solid white;
 
 }
+.notis-wrapper{
+    display: flex;
+    justify-content: center;
+}
+.wrong-cred{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    border: 2px solid rgb(200, 56, 56) ;
+    padding: 10px;
+    background-color: rgba(200, 56, 56, 0.584) ;
+}
+
+.close-notis{
+    background: none;
+    border: none;
+    margin-left: 1em;
+    font-size: 22px;
+    cursor: pointer;
+    color: #e62e09ea;
+    font-weight: bold;
+}
+.close-notis:hover{
+color: #9a250d;
+}
+

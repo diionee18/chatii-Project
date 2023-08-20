@@ -10,11 +10,14 @@ const LoginForm = () => {
     const [userName, setUserName] = useState("");
     const [userPassword, setUserPassword] = useState("");
     const [isLogdin, setLogdin] = useRecoilState(logdin);
+    const [wrongCredentials, setCredentials] = useState(false);
+
 
     
     
     const handleSubmit = async (e) => {
         e.preventDefault()
+        setCredentials(false)
     
 
         try{
@@ -22,10 +25,15 @@ const LoginForm = () => {
             if(response){
                 sessionStorage.getItem('jwt');
                 setLogdin(true)
+                setCredentials(false)
+            }else if(!response){
+                setCredentials(true)
+
             }
-           
+            
         }catch (error){
-         
+            
+            setCredentials(true)
             setLogdin(false)
         }
 
@@ -54,8 +62,16 @@ const LoginForm = () => {
                 
 
                         <h2>Logga In</h2>
-                  
-               
+                    <div className="notis-wrapper">
+
+                        {wrongCredentials && 
+                        <div className="wrong-cred"> 
+                            Felaktigt användarnamn eller lösenord
+                        <button className="close-notis" onClick={() => setCredentials(false)}>X</button>
+                        
+                        </div>
+                         }
+                         </div>
 
                     <div className="input-div">
                         <label htmlFor="name">Användarnamn</label>

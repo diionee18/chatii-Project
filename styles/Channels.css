@@ -1,5 +1,6 @@
 .channel-wrapper{
-    float: left;
+    grid-area: 1 / 1 / 6 / 2;
+    /* float: left; */
     background: rgb(2,0,36);
     background: linear-gradient(40deg, rgb(46, 44, 88) 0%, rgb(134, 134, 209) 0%, rgb(83, 108, 149) 81%);
     border: 4px solid rgba(49, 48, 131, 0.702);
