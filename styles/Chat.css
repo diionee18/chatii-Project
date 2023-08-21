@@ -3,18 +3,19 @@
 }
 
 .chat-wrapper{
-    background: rgb(2,0,36);
-    background: linear-gradient(40deg, rgba(2,0,36,1) 0%, rgba(92,92,164,1) 0%, rgba(132,179,255,1) 81%);
-    margin-left: 11em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     height: 100%;
-
+    width: 100%;
+    border: 2px solid rgba(96, 80, 164, 0.265);
 }
 
 .modal{
     overflow-y: hidden;
     padding: 2em 6em;
-    min-height: 84.4vh;
-    max-height: 84.4vh;
+    min-height: 82.4vh;
+    max-height: 82.4vh;
     overflow-y: scroll;
 }
 
